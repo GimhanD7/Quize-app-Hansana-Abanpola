@@ -110,7 +110,7 @@ export default function SidebarNav({ setIsOpen }) {
                 )}
             </NavLink>
 
-            {user?.is_admin == 1 && (
+            {String(user?.is_admin) === '1' && (
                 <NavLink 
                     to="/admin" 
                     className={({ isActive }) => 

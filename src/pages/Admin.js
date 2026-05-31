@@ -29,7 +29,7 @@ export default function Admin() {
     };
     
     const [quizzes, setQuizzes] = useState([]);
-    const [users, setUsers] = useState([]);
+    const [, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     
     // For creating a quiz
@@ -55,7 +55,7 @@ export default function Admin() {
     const [newQCorrect, setNewQCorrect] = useState('A');
 
     useEffect(() => {
-        if (user.is_admin != 1) {
+        if (String(user.is_admin) !== '1') {
             navigate('/dashboard');
             return;
         }
@@ -225,7 +225,7 @@ export default function Admin() {
                                             <div>
                                                 <h3 className="font-medium text-slate-900 text-sm flex items-center space-x-2">
                                                     <span>{quiz.title}</span>
-                                                    {quiz.is_public == 1 ? (
+                                                    {String(quiz.is_public) === '1' ? (
                                                         <span className="bg-emerald-100 text-emerald-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded">Public</span>
                                                     ) : (
                                                         <span className="bg-amber-100 text-amber-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded">Private</span>

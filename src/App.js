@@ -22,7 +22,7 @@ import Layout from './components/Layout';
 const ProtectedRoute = ({ children, requireAdmin }) => {
     const { user } = useAuth();
     if (!user) return <Navigate to="/" />;
-    if (requireAdmin && user.is_admin != 1) return <Navigate to="/dashboard" />;
+    if (requireAdmin && String(user.is_admin) !== '1') return <Navigate to="/dashboard" />;
     return children;
 };
 

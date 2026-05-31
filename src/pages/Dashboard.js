@@ -41,7 +41,7 @@ export default function Dashboard() {
         );
     }
 
-    const completedQuizIds = results.map(r => r.quiz_id || r.title); // api logic: need to ensure results map back accurately. We just map completed titles for now.
+    // const completedQuizIds = results.map(r => r.quiz_id || r.title);
 
     return (
         <div className="space-y-6">
@@ -61,7 +61,7 @@ export default function Dashboard() {
                                 Available Quizzes
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {quizzes.filter(q => q.is_public == 1 && !results.find(r => r.quiz_id === q.id)).map((quiz) => (
+                                {quizzes.filter(q => String(q.is_public) === '1' && !results.find(r => r.quiz_id === q.id)).map((quiz) => (
                                     <div 
                                         key={quiz.id} 
                                         className="bg-white border border-slate-200 p-5 rounded-xl flex flex-col justify-between shadow-sm"
@@ -78,7 +78,7 @@ export default function Dashboard() {
                                         </button>
                                     </div>
                                 ))}
-                                {quizzes.filter(q => q.is_public == 1 && !results.find(r => r.quiz_id === q.id)).length === 0 && (
+                                {quizzes.filter(q => String(q.is_public) === '1' && !results.find(r => r.quiz_id === q.id)).length === 0 && (
                                     <div className="col-span-full bg-white p-6 rounded-xl text-center border border-slate-200 shadow-sm">
                                         <p className="text-slate-500 text-sm">No new quizzes available right now.</p>
                                     </div>

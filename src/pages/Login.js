@@ -15,7 +15,7 @@ export default function Login() {
     // Redirect if already logged in
     React.useEffect(() => {
         if (user) {
-            navigate(user.is_admin == 1 ? '/admin' : '/dashboard');
+            navigate(String(user.is_admin) === '1' ? '/admin' : '/dashboard');
         }
     }, [user, navigate]);
 
@@ -35,7 +35,7 @@ export default function Login() {
             } else if (data.user) {
                 toast.success('Login successful!');
                 login(data.user);
-                navigate(data.user.is_admin == 1 ? '/admin' : '/dashboard');
+                navigate(String(data.user.is_admin) === '1' ? '/admin' : '/dashboard');
             }
         } catch (err) {
             toast.error(err.message || 'Login failed');
