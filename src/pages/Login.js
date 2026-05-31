@@ -74,7 +74,7 @@ export default function Login() {
                             value={indexNumber}
                             onChange={(e) => setIndexNumber(e.target.value)}
                             className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                            placeholder="name@example.com"
+                            placeholder="Index Number"
                         />
                     </div>
 
